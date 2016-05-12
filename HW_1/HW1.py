@@ -14,7 +14,6 @@ def func_1(start,end,sym,alloc,p):
     
     
     n_days=len(ldt_timestamps)  
-    n_sym=len(sym)
     
     
     c_dataobj = da.DataAccess('Yahoo', cachestalltime=0)
@@ -41,10 +40,22 @@ def func_1(start,end,sym,alloc,p):
     acc_returns= ((index[-1])/index[0])
     sharpe_ratio= (np.sqrt(252)*avg_returns/std_returns)
     if p==1:
+        #imprime las estadisticas del indice optimo
         print "Sharpe Ratio: ",sharpe_ratio
         print "Volatility (stdev of daily returns):  ",std_returns
         print "Average Daily Return:  ",avg_returns
         print "Cumulative Return:  ",acc_returns
+        
+        #imprimir el indice vs las stocks
+        plt.clf()
+        plt.plot(ldt_timestamps, index,c='#24bc00',linewidth=4)
+        plt.plot(ldt_timestamps, price_norm_close, alpha=0.5,linewidth=1)
+        chart_symbols= ls_symbols
+        chart_symbols.insert(0,"Index")
+        plt.legend(chart_symbols)
+        plt.ylabel('Adjusted Close')
+        plt.xlabel('Date')
+        plt.show()
     return(sharpe_ratio)
     
 
@@ -72,4 +83,3 @@ sym=['AXP', 'HPQ', 'IBM', 'HNZ']
 start = dt.datetime(2010,1,1)
 end = dt.datetime(2010,12,31)
 opt(start,end,sym)
-
