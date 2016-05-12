@@ -75,7 +75,7 @@ def opt(start,end,sym):
                             opt_alloc=alloc
     print opt_sharp
     print opt_alloc
-    results=func_1(start,end,sym,alloc,1)
+    results=func_1(start,end,sym,opt_alloc,1)
                         
     
 
