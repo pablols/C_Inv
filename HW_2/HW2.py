@@ -5,10 +5,12 @@ http://wiki.quantsoftware.org/index.php?title=QSTK_License
 for license details.
 
 Created on January, 23, 2013
+Modified on May 13,2016
 
 @author: Sourabh Bajaj
 @contact: sourabhbajaj@gatech.edu
 @summary: Event Profiler Tutorial
+@modified by Pablo Larraguibel
 '''
 
 
